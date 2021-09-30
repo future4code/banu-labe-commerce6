@@ -1,18 +1,35 @@
 import React from 'react';
-import './App.css';
-import CardProduto from './components/CardProdutos';
+import GlobalStyle from './globalStyles'
 
+// ---- Imports CSS ---- //
+import './Style.js';
 
-export default class App extends React.Component   {
-  
-  
+// ---- Imports Components ---- //
+import Header from './components/Header';
+import CardProduto from './components/CardProduto';
+import produtos from './date/produtos.json'
+
+ class App extends React.Component {
+   state ={
+     produtos: produtos
+   }
+
   render() {
   return (
-    <div className="App">
-      <CardProduto></CardProduto>
+    <div>
+      <GlobalStyle />
+      <Header />
+      <div>
+        {this.state.produtos.map(item => {
+          return <CardProduto key={item.id} item={item}/>
+        })}
+        
+      </div>
+
     </div>
    );
   } 
 }
+export default App
 
 
