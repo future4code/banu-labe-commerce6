@@ -73,6 +73,18 @@ const ContainerFiltros = styled.div`
   input {
     margin-bottom: 5px;
   }
+  .slider-wrapper input {
+  width: 170px;
+  height: 20px;
+  margin: 0;
+  transform-origin: 70px 70px;
+  .slider-wrapper {
+  display: inline-block;
+  width: 20px;
+  height: 170px;
+  padding: 0;
+}
+}
 
 `
 const ContainerCarrinho = styled.div`
@@ -186,7 +198,7 @@ class App extends React.Component {
     return (
       <Body>
         <Header>
-          <h1>VIDA DE ASTRONALTA 🪐</h1>
+          <h1>VIDA DE ASTRONALTA 🪐🛸🚀</h1>
         </Header>
 
         <ContainerPrincipal>
@@ -207,8 +219,15 @@ class App extends React.Component {
               type='number'
               placeholder='Preço Maximo...'
               value={this.state.maxPrice}
-              onChange={this.updateMaxPrice} 
+
             />
+            <div class="slider-wrapper">
+              <input 
+                type="range" 
+                min="10" max="100"
+                value={this.state.maxPrice}
+                onChange={this.updateMaxPrice}/>
+            </div>
           </ContainerFiltros>
 
           <ContainerMeio>
