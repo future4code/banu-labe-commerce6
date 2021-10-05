@@ -1,71 +1,60 @@
-import React from 'react';
-import styled from 'styled-components';
-import CardProdutos from './CardProduto';
+// import React from 'react';
+// import styled from 'styled-components';
 
-export default class Filtro extends React.Component {
+// const ContainerFiltros = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     padding: 5px;
+//     border: 1px solid black;
+//   input {
+//     margin-bottom: 5px;
+//   }
 
-    state = {
-        camisas: [],
-        precoMin:"",
-        precoMax:"",
-        nomeCamisa:""
-    }
+// `
 
-    updateMinPrice = (ev) => {
-        this.setState({
-            precoMin: ev.target.value
-        })
-    }
+// export function Filtro(props) {
+//     return <ContainerFiltros>
+//         <h3 className='titulo'>Filtros</h3>
+//         <input placeholder='Pesquisar...' />
+//         <input placeholder='Valor Min...' />
+//         <input placeholder='Valor Max...' />
+//     </ContainerFiltros>
+// }
 
-    updateMaxPrice = (ev) => {
-        this.setState({
-            precoMax: ev.target.value
-        })
-    }
 
-    updateNomeCamisa = (ev) => {
-        this.setState({
-            nomeCamisa: ev.target.value
-        })
-    }
+// // const FiltroPrimario = styled.div`
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
 
-    render() {
-      return (
-        <div className="FiltroInputs">
-        <h1>FILTRO</h1>
-            <input 
-            type="number"
-            placeholder="Preço mínimo"
-            value={this.state.precoMin}
-            onChange={this.updateMinPrice}
-            />
-            <input 
-            type="number"
-            placeholder="Preço máximo"
-            value={this.state.precoMax}
-            onChange={this.updateMaxPrice}
-            />
-            <input 
-            placeholder="Nome"
-            value={this.state.nomeCamisa}
-            onChange={this.updateNomeCamisa}
-            />
-        
-
-            <div className="FiltroRegras">
-                {this.state.camisas
-                .filter (camisa =>{
-                    return camisa.nome.toLowerCase().includes(this.state.nomeCamisa.toLowerCase()) || camisa.descricao.toLowerCase().includes(this.state.nomeCamisa.toLowerCase()) 
-                })
-                .filter(camisa=>{
-                    return this.state.precoMin === "" || camisa.preco >= this.state.precoMin
-                })
-                .filter(camisa=>{
-                    return this.state.precoMax === "" || camisa.preco <= this.state.precoMax
-                })
-                }
-            </div>
-        </div>
-      )
-    }
-}
+// {/* <FiltroPrimario>
+//         <input 
+//             placeholder='Pesquisa...'
+//             value={props.query}
+//             onChange={props.updateQuery} 
+//         />
+//         <input
+//             type='number'
+//             placeholder='Preço Minimo...'
+//             value={props.minPrice}
+//             onChange={props.updateMinPrice} 
+//         />
+//         <input
+//             type='number'
+//             placeholder='Preço Maximo...'
+//             value={props.maxPrice}
+//             onChange={props.updateMaxPrice} 
+//         />
+//         <span>
+//             <label for='ordem'>Ordenação:</label>
+//             <select
+//                 name='ordem'
+//                 value={props.ordem}
+//                 onChange={props.updateOrdem}
+//             >
+//                 <option value={1}>Crescente</option>
+//                 <option value={-1}>Decressente</option>
+//             </select>
+//         </span>
+//     </FiltroPrimario> */}
